@@ -3,6 +3,7 @@
   "version": "0.0.1",
   "author": "alexwjj",
   "description": "A Vue3 UI Library",
+  "main": "./dist",
   "scripts": {
     "dev": "vite --config ./build/base.config.ts",
     "build:doc": "vue-tsc --noEmit && vite build --config ./build/doc.config.ts && node script/copyDir.js",
@@ -13,7 +14,6 @@
     "prismjs": "^1.25.0",
     "vue": "^3.2.23"
   },
-  "files": ["./dist"],
   "devDependencies": {
     "@types/node": "^16.11.12",
     "@vitejs/plugin-vue": "^1.10.2",
