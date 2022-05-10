@@ -5,3 +5,18 @@
 
 ## 发包
 
+```js
+npm login
+
+npm version patch | minor | major
+
+npm publish
+```
+
+- 只发布dist
+
+- 仓库同名报错
+
+- scoped包发布报错
+
+- 
