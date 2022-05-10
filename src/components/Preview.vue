@@ -1,5 +1,5 @@
 <template>
-  <div class="JUI-preview">
+  <div class="JJUI-preview">
     <section>
       <slot></slot>
     </section>
@@ -43,7 +43,7 @@ export default {
   },
   computed: {
     previewSourceCode() {
-      return this.sourceCode.replace(/'\.\.\/\.\.\/index'/g, `'@tencent/j-ui'`);
+      return this.sourceCode.replace(/'\.\.\/\.\.\/index'/g, `'@tencent/jj-ui'`);
     },
   },
   async mounted() {
@@ -53,7 +53,7 @@ export default {
           await import(/* @vite-ignore */ `../../packages/${this.compName}/docs/${this.demoName}.vue?raw`)
         ).default;
       } else {
-        this.sourceCode = await fetch(`${isDev ? '' : '/J-UI'}/packages/${this.compName}/docs/${this.demoName}.vue`).then((res) => res.text());
+        this.sourceCode = await fetch(`${isDev ? '' : '/JJ-UI'}/packages/${this.compName}/docs/${this.demoName}.vue`).then((res) => res.text());
       }
     }
     await this.$nextTick();
@@ -74,7 +74,7 @@ export default {
 pre {
   line-height: 0;
 }
-.JUI-preview {
+.JJUI-preview {
   border: 4px;
   border: 1px dashed #e7e7e7;
   padding: 10px;

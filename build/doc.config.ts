@@ -3,7 +3,7 @@ import { defineConfig } from 'vite';
 
 export default defineConfig({
   ...baseConfig,
-  base: '/J-UI',
+  base: '/JJ-UI',
   build: {
     outDir: 'docs',
   },

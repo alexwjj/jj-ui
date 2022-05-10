@@ -10,14 +10,14 @@ import { App, Plugin } from 'vue';
 import { ButtonPlugin } from './Button';
 import { FooPlugin } from './Foo';
 
-const JUIPlugin: Plugin = {
+const JJUIPlugin: Plugin = {
   install(app: App) {
     ButtonPlugin.install?.(app);
     FooPlugin.install?.(app);
   },
 };
 
-export default JUIPlugin;
+export default JJUIPlugin;
 
 export * from './Button'
 export * from './Foo'

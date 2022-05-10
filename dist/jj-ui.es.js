@@ -38,11 +38,11 @@ const FooPlugin = {
     app.component("my-foo", Foo);
   }
 };
-const JUIPlugin = {
+const JJUIPlugin = {
   install(app) {
     var _a, _b;
     (_a = ButtonPlugin.install) == null ? void 0 : _a.call(ButtonPlugin, app);
     (_b = FooPlugin.install) == null ? void 0 : _b.call(FooPlugin, app);
   }
 };
-export { Button, ButtonPlugin, Foo, FooPlugin, JUIPlugin as default };
+export { Button, ButtonPlugin, Foo, FooPlugin, JJUIPlugin as default };

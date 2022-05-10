@@ -9,8 +9,8 @@ export default defineConfig({
     outDir: 'dist',
     lib: {
       entry: resolve(__dirname, '../packages/index.ts'),
-      name: 'JUI',
-      fileName: (format) => `j-ui.${format}.js`,
+      name: 'JJUI',
+      fileName: (format) => `jj-ui.${format}.js`,
     },
     rollupOptions: {
       // 确保外部化处理那些你不想打包进库的依赖

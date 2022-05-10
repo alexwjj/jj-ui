@@ -9,12 +9,12 @@ import { App, Plugin } from 'vue';
 
 {{ importPlugins }}
 
-const JUIPlugin: Plugin = {
+const JJUIPlugin: Plugin = {
   install(app: App) {
     {{ installPlugins }}
   },
 };
 
-export default JUIPlugin;
+export default JJUIPlugin;
 
 {{ exportPlugins }}
