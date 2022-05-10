@@ -1,6 +1,6 @@
 {
   "name": "@alexwjj/jj-ui",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "author": "alexwjj",
   "description": "A Vue3 UI Library",
   "scripts": {
@@ -16,7 +16,9 @@
   "peerDependencies": {
     "vue": "^3.2.0"
   },
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "devDependencies": {
     "@types/node": "^16.11.12",
     "@vitejs/plugin-vue": "^1.10.2",
