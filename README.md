@@ -12,11 +12,13 @@ npm version patch | minor | major
 
 npm publish
 ```
-
+### 一些问题
 - 只发布dist
+package.json 中配置 "files": ["dist"],
 
 - 仓库同名报错
 
 - scoped包发布报错
+按照提醒 加上 --access 
 
 - 
