@@ -7,10 +7,17 @@
 
 ```js
 npm login
-
 npm version patch | minor | major
-
+// major.minor.patch
 npm publish
+
+// 废弃指定版本，还是可以安装的，只是有warn
+npm deprecate <pkg>@<version> <message> 
+
+// 删除包
+// 删除的版本24小时后方可重发!
+// 只有发布72小时之内的包可以删除!
+npm unpublish @alexwjj/jj-ui --force
 ```
 ### 一些问题
 - 只发布dist
