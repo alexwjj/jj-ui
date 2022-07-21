@@ -16,10 +16,21 @@
     <div>视图不会更新：{{ shallowExp }}</div>
     <h1>组件通信</h1>
     <Child ref="childInstance" @on-change="onChangeChild"></Child>
+    <h1>异步组件</h1>
+    <Suspense>
+      <template #default>
+        <AsyncComponent></AsyncComponent>
+      </template>
+
+      <template #fallback>
+        <div>loading...</div>
+      </template>
+    </Suspense>
   </div>
 </template>
 <script lang="ts" setup>
-import Child from './child.vue'
+import Child from "./child.vue";
+
 import {
   computed,
   isRef,
@@ -29,16 +40,24 @@ import {
   toRefs,
   watch,
   watchEffect,
+  defineAsyncComponent,
+  onMounted,
 } from "vue";
-const childInstance = ref()
+const AsyncComponent = defineAsyncComponent(
+  () => import("./asyncComponent.vue")
+);
+const getUserInfo = () => {
+  console.log("获取用户信息");
+};
+onMounted(getUserInfo);
+const childInstance = ref();
 const onChangeChild = (data: string) => {
-  console.log(data, '子组件数据');
+  console.log(data, "子组件数据");
   // 子组件实例通过ref访问
   // <Child ref="childInstance" @on-change="onChangeChild"></Child>
-  console.log(childInstance.value, '子组件实例');
-  console.log(childInstance.value.childrenData, '子组件数据'); // 999
-}
-
+  console.log(childInstance.value, "子组件实例");
+  console.log(childInstance.value.childrenData, "子组件数据"); // 999
+};
 
 const count = ref<number>(0);
 const notRef: number = 1;
@@ -50,6 +69,16 @@ const addCount = () => {
   console.log(isRef(count)); //true
   console.log(isRef(notRef)); //false
 };
+const count1 = ref(1);
+const plusOne = computed({
+  get: () => count1.value + 1,
+  set: (val) => {
+    count1.value = val - 1;
+  },
+});
+
+plusOne.value = 1;
+console.log(count1.value, "11111"); // 0
 
 const articleInfo = reactive({
   author: "Vue Team",
@@ -76,21 +105,24 @@ const changeShallow = () => {
   shallowExp.b.x = "JJ";
   console.log(shallowExp);
 };
-// watchEffect 
-const stopWatch = watchEffect((oninvalidate) => {
-  oninvalidate(() => {
-    console.log('前置校验函数');
-  })
-  console.log('watchEffect count变化', count.value);
-}, {
-  // 副作用刷新时机 flush 一般使用post
-  // 可选：pre(组件更新前执行)/sync(强制效果始终同步触发)/post(组件更新后执行)
-  flush: "post",
-  // 开发调试
-  onTrigger() {
-    console.log('开发调试');
+// watchEffect
+const stopWatch = watchEffect(
+  (oninvalidate): void => {
+    oninvalidate(() => {
+      console.log("前置校验函数");
+    });
+    console.log("watchEffect count变化", count.value);
+  },
+  {
+    // 副作用刷新时机 flush 一般使用post
+    // 可选：pre(组件更新前执行)/sync(强制效果始终同步触发)/post(组件更新后执行)
+    flush: "post",
+    // 开发调试
+    onTrigger() {
+      console.log("开发调试");
+    },
   }
-})
+);
 // watch
 // 单个监听
 watch(count, (newVal, oldVal) => {

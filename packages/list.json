@@ -7,8 +7,8 @@
   },
   {
     "compName": "Foo",
-    "compZhName": "测试组件",
-    "compDesc": "默认：这是一个新组件",
+    "compZhName": "Vue3 Study",
+    "compDesc": "测试vue3相关属性",
     "compClassName": "foo"
   }
 ]
