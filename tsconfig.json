@@ -12,6 +12,8 @@
     "allowJs": true,
     "lib": ["esnext", "dom"],
     "skipLibCheck": true,
+    "jsxFactory": "h",
+    "jsxFragmentFactory": "Fragment",
     "paths": {
       "packages/*": ["./packages/*"]
     }

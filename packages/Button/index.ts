@@ -1,9 +1,9 @@
-import { App, Plugin } from 'vue';
-import Button from './src/index.vue';
+import { App, Plugin } from "vue";
+import Button from "./src/button";
 
 export const ButtonPlugin: Plugin = {
   install(app: App) {
-    app.component('my-button', Button);
+    app.component("t-button", Button);
   },
 };
 
